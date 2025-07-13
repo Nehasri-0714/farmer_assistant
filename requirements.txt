@@ -1,0 +1,7 @@
+vosk
+
+mediapipe
+opencv-python
+
+flask
+
