@@ -1,0 +1,12 @@
+# Model files
+vosk_models/
+*.gguf
+*.tflite
+
+# Videos
+client_videos/
+
+# Build folders
+__pycache__/
+dist/
+build/
