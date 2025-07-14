@@ -1,15 +1,11 @@
 vosk
-<<<<<<< HEAD
 ffmpeg-python
-=======
->>>>>>> fcacf1a87502477af48d76568026becea0b00b80
 
 mediapipe
 opencv-python
 
-<<<<<<< HEAD
-flask
-=======
+
 flask
 
->>>>>>> fcacf1a87502477af48d76568026becea0b00b80
+colorama
+

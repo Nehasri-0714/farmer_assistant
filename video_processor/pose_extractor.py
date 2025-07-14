@@ -1,33 +1,32 @@
 import cv2
 import mediapipe as mp
 import json
+import os
 
-def extract_poses(video_path):
-    cap = cv2.VideoCapture(video_path)
-    mp_pose = mp.solutions.pose
-    pose = mp_pose.Pose()
-    results = {}
+mp_pose = mp.solutions.pose
+pose = mp_pose.Pose()
+cap = cv2.VideoCapture("client_videos/sample.mp4")
 
-    frame_id = 0
-    while cap.isOpened():
-        success, image = cap.read()
-        if not success: break
-        frame_id += 1
-        if frame_id % 30 != 0: continue  # Sample every second (30 FPS)
+poses = []
+frame_no = 0
 
-        image_rgb = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
-        result = pose.process(image_rgb)
-        if result.pose_landmarks:
-            results[f"frame_{frame_id}"] = [
-                {
-                    "x": lm.x,
-                    "y": lm.y,
-                    "z": lm.z
-                }
-                for lm in result.pose_landmarks.landmark
-            ]
+while cap.isOpened():
+    success, frame = cap.read()
+    if not success:
+        break
+    frame_no += 1
+    image = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+    result = pose.process(image)
 
-    with open("knowledge_base/step_poses.json", "w") as f:
-        json.dump(results, f)
+    if result.pose_landmarks:
+        keypoints = []
+        for lm in result.pose_landmarks.landmark:
+            keypoints.append({'x': lm.x, 'y': lm.y, 'z': lm.z})
+        poses.append({'frame': frame_no, 'landmarks': keypoints})
 
-    print("Pose data saved to step_poses.json")
+cap.release()
+os.makedirs("knowledge_base", exist_ok=True)
+with open("knowledge_base/raw_pose_data.json", "w") as f:
+    json.dump(poses, f, indent=2)
+
+print("✅ Pose extraction done. Saved to raw_pose_data.json")

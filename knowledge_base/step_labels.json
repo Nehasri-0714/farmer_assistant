@@ -1,0 +1,52 @@
+[
+  {
+    "step": "Introduction to LLM Challenges",
+    "start": "00:00",
+    "end": "00:42"
+  },
+  {
+    "step": "Example: Planet with Most Moons",
+    "start": "00:43",
+    "end": "01:24"
+  },
+  {
+    "step": "Problems: No Source and Outdated Info",
+    "start": "01:25",
+    "end": "01:46"
+  },
+  {
+    "step": "Correcting with Reliable Source (NASA)",
+    "start": "01:47",
+    "end": "02:10"
+  },
+  {
+    "step": "LLMs Without Retrieval: Overconfidence",
+    "start": "02:11",
+    "end": "02:35"
+  },
+  {
+    "step": "Introducing Retrieval-Augmented Generation (RAG)",
+    "start": "02:36",
+    "end": "03:05"
+  },
+  {
+    "step": "How RAG Works: Retrieval + Generation",
+    "start": "03:06",
+    "end": "03:40"
+  },
+  {
+    "step": "RAG Benefits: Up-to-date and Grounded Answers",
+    "start": "03:41",
+    "end": "04:14"
+  },
+  {
+    "step": "Model Behavior: 'I Don't Know'",
+    "start": "04:15",
+    "end": "04:35"
+  },
+  {
+    "step": "Improving Retriever & Generator Quality",
+    "start": "04:36",
+    "end": "04:50"
+  }
+]
